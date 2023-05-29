@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/* mixinを定義（出力する場所より上に記述） */
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+}
+.container:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: red;
+}
+.container.box {
+  width: 20%;
+  /* 擬似クラス */
+}
+.container.box:nth-of-type(3) {
+  width: 40%;
+  /* 擬似クラスの連結 */
+}
+.container.box:nth-of-type(3):hover {
+  opacity: 0.2;
+  transition: all 0.3s;
+}
+.container .title {
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+}
+.container .wrap1 {
+  display: flex;
+}
+.container .wrap1 .text {
+  color: red;
+}
+@media screen and (max-width: 575px) {
+  .container .wrap1 .text {
+    color: blue;
+  }
+}
+.container .wrap2 {
+  width: 33.3333%;
+}/*# sourceMappingURL=style.css.map */

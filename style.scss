@@ -1,0 +1,51 @@
+$mainColor: red;
+$subColor: blue;
+
+/* mixinを定義（出力する場所より上に記述） */
+@mixin xl {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    &:before{
+        content: "";
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: $mainColor;
+    }
+    &.box{
+        width: 20%;
+        /* 擬似クラス */
+        &:nth-of-type(3) {
+            width: 40%;
+            /* 擬似クラスの連結 */
+            &:hover {
+                opacity: .2;
+                transition: all .3s;
+            }
+        }
+    }
+    .title {
+        font-size: 30px;
+        font-weight: bold;
+        color: $mainColor;
+    }
+    .wrap1{
+          display: flex;
+          .text{
+            color: $mainColor;
+            @media screen and (max-width: 575px) {
+                color: $subColor;
+            }
+          }  
+    }
+    .wrap2{
+        width: 33.3333%;
+    }
+}
